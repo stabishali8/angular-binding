@@ -15,6 +15,15 @@ import { Component, OnInit } from '@angular/core';
   <h2 [ngClass]="messageClasses">
     Degree Vs Skills
   </h2>
+
+  <h2 [style.color]="hasError ? 'red' : 'green'">
+  Style Binding</h2>
+
+  <h2 [style.color]="highlightColor">
+  Style Binding</h2>
+
+  <h2 [ngStyle]="titleStyle">
+  Style Binding</h2>
   `,
   styles: [`
     .text-success {
@@ -33,12 +42,17 @@ export class TestComponent implements OnInit {
   public name = "Syed Tabish Ali";
   public myId = "testId"
   public successClass = "text-success";
-  public hasError = false;
+  public hasError = true;
   public isSpecial = "true";
+  public highlightColor = "orange";
   public messageClasses = {
     "text-success": !this.hasError,
     "text-danger":this.hasError,
     "text-special":this.isSpecial
+  }
+
+  public titleStyle = {
+    fontStyle:"Italic"
   }
   constructor() { }
 
