@@ -24,7 +24,14 @@ import { Component, OnInit } from '@angular/core';
 
   <h2 [ngStyle]="titleStyle">
   Style Binding</h2>
-  `,
+
+  <button (click)="onClick($event)">Greet</button>
+  <button (click)="onClick($event)">Greet</button>
+
+  {{greeting}}
+  `
+  
+  ,
   styles: [`
     .text-success {
       color : green;
@@ -45,6 +52,7 @@ export class TestComponent implements OnInit {
   public hasError = true;
   public isSpecial = "true";
   public highlightColor = "orange";
+  public greeting = "";
   public messageClasses = {
     "text-success": !this.hasError,
     "text-danger":this.hasError,
@@ -57,6 +65,11 @@ export class TestComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(event:any){
+    console.log(event)
+    this.greeting = event.type
   }
 
 }
